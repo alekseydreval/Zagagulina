@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h2> Content of category <%= @category.name %> </h2>
-<%= render partial: 'subcategories', locals: { categories: @category.children } %>
-<%= render partial: 'goods', locals: { goods: @category.goods } %>
-<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= render partial: 'subcategories', locals: { categories: [@category], first: true } %>
+<% if @category.parent %>
+  <%= link_to 'Back to parent category', category_path(@category.parent) %> |
+<% end %>
 <%= link_to 'Back to all categories', categories_path %>

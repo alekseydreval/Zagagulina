@@ -7,7 +7,7 @@
         <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%= link_to 'Create child category', new_category_path( parent_id: category.id ) %>
         <%= render partial: 'goods', locals: { goods: category.goods } %>
-         <%=  link_to 'Create an item here', new_category_good_path(category, category_orig_id: category.id) %>
+         <%=  link_to 'Create a good here', new_category_good_path(category, category_orig_id: category.id) %>
         </div>
         <%= render partial: 'subcategories', locals: { categories: category.children, first: false } if category.children.present? %>
       </li>

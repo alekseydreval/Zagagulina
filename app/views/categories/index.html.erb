@@ -1,4 +1,6 @@
-<h1>All Categories</h1>
+<% if @categories.present? %>
+  <h1>All Categories</h1>
+<% end %>
 
 <p id='notice'><%= notice %></p>
 <%= render partial: 'subcategories', locals: { categories: @categories, first: true } %>
