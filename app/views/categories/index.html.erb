@@ -1,0 +1,12 @@
+<h1>All Categories</h1>
+
+<p id='notice'><%= notice %></p>
+<%= render partial: 'subcategories', locals: { categories: @categories, first: true } %>
+<h1>
+  <%= link_to 'Create root category', new_category_path %>
+</h1>
+<br />
+<% if @uncategorizedGoods.present? %>
+  <h1>Uncategorized items:</h1>
+  <%= render partial: 'goods', locals: { goods: @uncategorizedGoods } %>
+<% end %>

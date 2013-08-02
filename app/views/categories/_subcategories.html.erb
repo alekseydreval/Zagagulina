@@ -1,0 +1,15 @@
+<ul id = "<%= 'categories-root' if defined? first %>" >
+  <% categories.each do |category| %>
+      <li id = "category_<%= category.id %>" style='border: 1px solid;margin:10px 0;' class='category'>
+        <div>
+          <i>Category:</i> <%= link_to category.name, category %>
+        | <%= link_to 'Edit', edit_category_path(category) %>
+        <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Create child category', new_category_path( parent_id: category.id ) %>
+        <%= render partial: 'goods', locals: { goods: category.goods } %>
+         <%=  link_to 'Create an item here', new_category_good_path(category, category_orig_id: category.id) %>
+        </div>
+        <%= render partial: 'subcategories', locals: { categories: category.children, first: false } if category.children.present? %>
+      </li>
+  <% end %>
+</ul>

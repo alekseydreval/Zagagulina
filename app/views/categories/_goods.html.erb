@@ -1,0 +1,11 @@
+<% goods.each do |good| %>
+  <div style="background:<%= cycle('#C6EE89', '#CCB8F5' )%>; width: 400px; margin: 10px 0;" >
+    <i>Item:</i> <%= link_to good.name, good %> | 
+    <%= link_to 'Edit', edit_good_path(good) %> |
+    <%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div style='width: 500px;'>
+        <%= image_tag good.image.url(:preview) %>
+        <%= good.description %>
+      </div>
+  </div>
+<% end %>
